@@ -1,0 +1,32 @@
+<div class="container-fluid registration py-5">
+    <h2 class="red-border px-3">アカウントの新規作成</h2>
+  <div class="row mt-3">
+    <div class="offset-4 col-4">
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="form-group">
+        <%= f.label :お名前, class: "brown-border px-3" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"例）大阪太郎", class: "form-control offset-1 col-11" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :メールアドレス, class: "brown-border px-3" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例）example@mail", class: "form-control offset-1 col-11" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :パスワード, class: "brown-border px-3" %>
+        <%= f.password_field :password, placeholder:"最低６文字必要です。", autocomplete: "new-password", class: "form-control offset-1 col-11" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :パスワード確認, class: "brown-border px-3" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control offset-1 col-11" %>
+      </div>
+      <div class="row">
+        <%= f.submit "アカウント登録", class: "btn btn-lg btn-danger mx-auto" %>
+      </div>
+    <% end %>
+  　</div>
+　</div>
+  <p>
+    <%= link_to "アカウントを登録している方はこちらから", new_session_path(resource_name), class: "btn btn-sm btn-outline-danger" %>
+  </p>
+</div>

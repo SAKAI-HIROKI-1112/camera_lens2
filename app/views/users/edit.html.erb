@@ -1,0 +1,35 @@
+<div class="card-list-containar py-5">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          <h4>プロフィール編集</h4>
+          <%= form_with model:@user, local:true do |f| %>
+          <div class="form-group">
+            <tr>
+              <th><%= f.label :ユーザー名 %></th>
+              <th><%= f.text_field :name,class: "form-control name" %></th>
+            </tr>
+          </div>
+          <div class="form-group">
+            <tr>
+              <th><%= f.label :プロフィール画像%></th></br>
+              <th><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%></th>
+              <th><%= f.attachment_field :profile_image, class: "form-control-file user_image" %></th>
+            </tr>
+          </div>
+          <div class="form-group">
+            <tr>
+              <th><%= f.label :自己紹介文 %></th>
+              <th><%= f.text_area :introduction, class: "form-control introduction" %></th>
+            </tr>
+          </div>
+          <div class="form-group">
+            <%= f.submit '変更を保存',class: "btn btn-secondary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

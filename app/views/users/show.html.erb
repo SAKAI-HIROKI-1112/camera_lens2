@@ -1,0 +1,19 @@
+<div class="card-list-containar py-5">
+  <div class="card w-50 mx-auto mt-2 shadow-lg">
+    <div class="profile-container">
+      <p>
+        <h4 class="profile-name"><%= @user.name %></h4>
+      <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" %>
+      </p>
+      <p>
+        <h5>自己紹介</h5></br>
+      <%= @user.introduction %>
+      </p>
+      <% if @user.id == current_user.id %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<h1>↓ 投稿一覧 ↓</h1>
+<%= render 'post_images/list', post_images: @post_images %>
