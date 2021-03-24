@@ -6,7 +6,7 @@
       <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" %>
       </p>
       <p>
-        <h5>自己紹介</h5></br>
+        <h5>自己紹介</h5><br />
       <%= @user.introduction %>
       </p>
       <% if @user.id == current_user.id %>

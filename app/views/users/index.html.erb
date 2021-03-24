@@ -1,10 +1,10 @@
+<% @users.each do |user| %>
 <div class="card-list-containar py-2">
   <div class="card w-25 mx-auto mt-2 shadow-lg">
-    <% @users.each do |user| %>
     <div>
-      <%= attachment_image_tag user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg" %></br>
-      <p class="profile-name"><%= user.name %></br>
-        <%= link_to"ユーザーを確認",user_path(user.id) %>
+      <%= attachment_image_tag user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg" %><br />
+      <p class="profile-name"><%= user.name %><br />
+        <%= link_to"ユーザーを確認", user_path(user.id) %>
       </p>
     </div>
   </div>
